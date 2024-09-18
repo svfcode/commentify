@@ -14,7 +14,7 @@
 
                 <div class="flex items-center">
                     <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"><img
-                                class="mr-2 w-6 h-6 rounded-full"
+                                class="mr-2 w-6 h-6 rounded-full object-cover object-center"
                                 src="{{$comment->user->avatar()}}"
                                 alt="{{$comment->user->name}}">{{Str::ucfirst($comment->user->name)}}</p>
                     <p class="text-sm text-gray-600 dark:text-gray-400">
