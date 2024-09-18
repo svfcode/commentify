@@ -1,5 +1,5 @@
 {
-    "name": "usamamuneerchaudhary/commentify",
+    "name": "svfcode/commentify",
     "description": "Easy Laravel Livewire Comments with TailwindCSS UI",
     "keywords": [
         "usamamuneerchaudhary",
@@ -11,13 +11,6 @@
     ],
     "license": "MIT",
     "type": "library",
-    "authors": [
-        {
-            "name": "Usama Muneer",
-            "email": "hello@usamamuneer.me",
-            "role": "Developer"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "Usamamuneerchaudhary\\Commentify\\": "src",
