@@ -29,9 +29,9 @@ trait HasLikes
             })->count();
         }
 
-        if ($ip && $userAgent) {
-            return $this->likes()->forIp($ip)->forUserAgent($userAgent)->count();
-        }
+        // if ($ip && $userAgent) {
+        //     return $this->likes()->forIp($ip)->forUserAgent($userAgent)->count();
+        // }
 
         return false;
     }
@@ -47,9 +47,9 @@ trait HasLikes
             return $this->likes()->where('user_id', auth()->user()->id)->where('comment_id', $this->id)->delete();
         }
 
-        if ($ip && $userAgent) {
-            return $this->likes()->forIp($ip)->forUserAgent($userAgent)->delete();
-        }
+        // if ($ip && $userAgent) {
+        //     return $this->likes()->forIp($ip)->forUserAgent($userAgent)->delete();
+        // }
 
         return false;
     }
