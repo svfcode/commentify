@@ -23,26 +23,25 @@ class Like extends Component
 
     public function like(): void
     {
-        $ip = request()->ip();
-        $userAgent = request()->userAgent();
+        if (!auth()->check()) {
+            return;
+        }
+
+        if (!auth()->user()->hasVerifiedEmail()) {
+            return;
+        }
+
         if ($this->comment->isLiked()) {
             $this->comment->removeLike();
-
             $this->count--;
-        } elseif (auth()->user()) {
-            $this->comment->likes()->create([
-                'user_id' => auth()->id(),
-            ]);
-
-            $this->count++;
-        } elseif ($ip && $userAgent) {
-            $this->comment->likes()->create([
-                'ip' => $ip,
-                'user_agent' => $userAgent,
-            ]);
-
-            $this->count++;
+            return;
         }
+
+        $this->comment->likes()->create([
+            'user_id' => auth()->id(),
+        ]);
+
+        $this->count++;
     }
 
     /**
