@@ -9,6 +9,10 @@ trait HasUserAvatar
      */
     public function avatar(): string
     {
-        return '/storage/' . $this->profile_photo_path ?? 'https://gravatar.com/avatar/'.md5($this->email).'?s=80&d=mp';
+        if ($this->profile_photo_path) {
+            return '/storage/' . $this->profile_photo_path;
+        }
+
+        return 'https://gravatar.com/avatar/'.md5($this->email).'?s=80&d=mp';
     }
 }
